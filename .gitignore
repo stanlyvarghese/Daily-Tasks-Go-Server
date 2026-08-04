@@ -8,25 +8,20 @@
 *.so
 *.dylib
 
-# Test binary, built with `go test -c`
+# Go build
+bin/
+dist/
+
+# Test binary
 *.test
 
-# Code coverage profiles and other test artifacts
+# Coverage
 *.out
-coverage.*
-*.coverprofile
-profile.cov
 
-# Dependency directories (remove the comment below to include it)
-# vendor/
+# IDE
+.vscode/
+.idea/
 
-# Go workspace file
-go.work
-go.work.sum
-
-# env file
-.env
-
-# Editor/IDE
-# .idea/
-# .vscode/
+# OS files
+.DS_Store
+Thumbs.db

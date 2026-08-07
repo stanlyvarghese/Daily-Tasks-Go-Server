@@ -81,7 +81,7 @@ func contact(w http.ResponseWriter, r *http.Request) {
 </div>
 </body>
 </html>`)
-	fmt.Fprintln(w, "Contact me at : 7007787263")
+	fmt.Fprintln(w, "Contact me at stanlyvarghese14@gmail.com")
 }
 
 func main() {

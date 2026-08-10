@@ -1,3 +1,3 @@
-module github.com/stanlyvarghese/go-multi-page-web-server
+module kanban_board
 
-go 1.25
+go 1.26.4

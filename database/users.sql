@@ -1,0 +1,21 @@
+-- DROP TABLE IF EXISTS users;
+
+-- CREATE TABLE users (
+-- 	name VARCHAR(100) NOT NULL,
+-- 	email_address VARCHAR(255) NOT NULL UNIQUE,
+-- 	password VARCHAR(255) NOT NULL
+-- );
+
+-- INSERT INTO users (name, email_address, password) VALUES
+-- 	('Aarav Yadav', 'aarav.sharma@example.com', 'Aarav@2025'),
+-- 	('Ananya Patel', 'ananya.patel@example.com', 'Ananya@2025'),
+-- 	('Vikram Singh', 'vikram.singh@example.com', 'Vikram@2025'),
+-- 	('Ishita Nair', 'ishita.nair@example.com', 'Ishita@2025'),
+-- 	('Rohan Mehta', 'rohan.mehta@example.com', 'Rohan@2025'),
+-- 	('Kavya Reddy', 'kavya.reddy@example.com', 'Kavya@2025'),
+-- 	('Arjun Iyer', 'arjun.iyer@example.com', 'Arjun@2025'),
+-- 	('Priya Deshmukh', 'priya.deshmukh@example.com', 'Priya@2025'),
+-- 	('Aditya Gupta', 'aditya.gupta@example.com', 'Aditya@2025'),
+-- 	('Meera Joshi', 'meera.joshi@example.com', 'Meera@2025');
+
+Select * from users;

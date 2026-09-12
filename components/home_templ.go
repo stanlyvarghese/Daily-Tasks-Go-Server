@@ -8,3 +8,19 @@ import "github.com/a-h/templ"
 import templruntime "github.com/a-h/templ/runtime"
 
 var _ = templruntime.GeneratedTemplate
+
+
+func main() {
+
+	// dir, _ := os.Getwd()
+	// fmt.Println("Working directory:", dir)
+
+	fs := http.FileServer(http.Dir("./static"))
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+
+	http.HandleFunc("/", home)
+	http.HandleFunc("/about", about)
+	http.HandleFunc("/contact", contact)
+	http.ListenAndServe(":8080", nil)
+
+}

@@ -224,21 +224,23 @@ func contact(w http.ResponseWriter, r *http.Request) {
 </html>`)
 }
 func (s *Server) Start() {
-	// dir, _ := os.Getwd()
-	// fmt.Println("Working directory:", dir)
-
 	mux := http.NewServeMux()
 
+	// Static files
 	fs := http.FileServer(http.Dir("./static"))
 	mux.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	// Routing
+	// Routes
 	mux.HandleFunc("/about", about)
 	mux.HandleFunc("/contact", contact)
 	mux.HandleFunc("/", home)
 
-	// default Serve Mux
-	// http.ListenAndServe(":8080", nil)
-	
-	return mux
+	fmt.Println("Server running at http://localhost:8080")
+
+	err := http.ListenAndServe(":8080", mux)
+
+	if err != nil {
+		fmt.Println("Server failed:", err)
+	}
 }
+

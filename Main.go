@@ -1,16 +1,18 @@
 package main 
 
+import (
+	"log"
+)
+
 //
 
 //db, err := sql.Open("sqlite3", "app.db")
 
-
-
-
 func main() {
+	server, err := NewServer()
 
-	server := NewServer()
-	server.Start()
-	
-	
+	if err != nil {
+    	log.Fatal(err)
+}
+server.Start()
 }

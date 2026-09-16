@@ -3,13 +3,32 @@ package main
 import (
 	"fmt"
 	"net/http" 
-	// "os"
+	_"github.com/glebarez/sqlite"
+	"database/sql"
 )
 
-type Server struct{}
+type Server struct{
+	db *sql.DB
+}
 
-func NewServer() *Server{
-	return &Server{}
+func NewServer() (*Server, error) {
+
+    db, err := sql.Open("sqlite", "kanban.db")
+    if err != nil {
+        return nil, err
+    }
+
+    if err := db.Ping(); err != nil {
+        return nil, err
+    }
+
+    if err := initDB(db); err != nil {
+        return nil, err
+    }
+
+    return &Server{
+        db: db,
+    }, nil
 }
 
 func home(w http.ResponseWriter, r *http.Request) {
@@ -222,6 +241,20 @@ func contact(w http.ResponseWriter, r *http.Request) {
 
 </body>
 </html>`)
+}
+func initDB(db *sql.DB) error {
+
+    _, err := db.Exec(`
+        CREATE TABLE IF NOT EXISTS users (
+            id INTEGER PRIMARY KEY,
+            username TEXT NOT NULL UNIQUE,
+            email TEXT NOT NULL UNIQUE,
+            password_hash TEXT NOT NULL,
+            created_at TEXT NOT NULL
+        );
+    `)
+
+    return err
 }
 func (s *Server) Start() {
 	mux := http.NewServeMux()

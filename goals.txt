@@ -1,0 +1,2 @@
+zustand - Session level storage/in-browser storage
+Basic Authentication - Hash tables & encryption

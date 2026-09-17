@@ -1,10 +1,11 @@
 package main 
 
 import (
-	"fmt"
-	"net/http" 
-	_"github.com/glebarez/sqlite"
 	"database/sql"
+	"fmt"
+	"net/http"
+
+	_"github.com/glebarez/sqlite"
 )
 
 type Server struct{
@@ -276,4 +277,3 @@ func (s *Server) Start() {
 		fmt.Println("Server failed:", err)
 	}
 }
-

@@ -268,7 +268,8 @@ func (s *Server) Start() {
 	mux.HandleFunc("/about", about)
 	mux.HandleFunc("/contact", contact)
 	mux.HandleFunc("/", home)
-
+	mux.HandleFunc("/signup", s.signup)
+	
 	fmt.Println("Server running at http://localhost:8080")
 
 	err := http.ListenAndServe(":8080", mux)

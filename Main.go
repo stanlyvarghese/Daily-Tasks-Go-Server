@@ -1,4 +1,4 @@
-package main 
+package main
 
 import (
 	"log"
@@ -12,7 +12,10 @@ func main() {
 	server, err := NewServer()
 
 	if err != nil {
-    	log.Fatal(err)
-}
-server.Start()
+		log.Fatal(err)
+	}
+
+	testUserDatabase(server)
+
+	server.Start()
 }
